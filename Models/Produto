@@ -12,7 +12,18 @@ namespace LojaVirtual.Models
         public Produto(int  id, string nome, decimal preco, string categoria)
         {
             if (id <= 0)
-                throw new ArgumentExpection("O id do produto deve ser maior que zero")
+                throw new ArgumentExpection("O id do produto deve ser maior que zero");
+            if (string.IsNullOrWhiteSpace(nome)) 
+                throw new ArgumentExpection("Nome é obrigatorio");
+            if (preco <= 0)
+                throw new ArgumentExpection("Preço deve ser maior que zero");
+            if (string,IsNullOrWhiteSpace(categoria))
+                trow new ArgumentExpection("A categoria é obrigatoria")
+
+            Id = id;
+            Nome = nome;
+            Preco = preco;
+            Categoria = categoria;
         }
     }
 }

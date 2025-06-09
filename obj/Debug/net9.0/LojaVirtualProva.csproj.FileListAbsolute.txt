@@ -1,0 +1,5 @@
+C:\Users\Edu\Documents\GitHub\LojaVirtualProva\obj\Debug\net9.0\LojaVirtualProva.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Edu\Documents\GitHub\LojaVirtualProva\obj\Debug\net9.0\LojaVirtualProva.AssemblyInfoInputs.cache
+C:\Users\Edu\Documents\GitHub\LojaVirtualProva\obj\Debug\net9.0\LojaVirtualProva.AssemblyInfo.cs
+C:\Users\Edu\Documents\GitHub\LojaVirtualProva\obj\Debug\net9.0\LojaVirtualProva.csproj.CoreCompileInputs.cache
+C:\Users\Edu\Documents\GitHub\LojaVirtualProva\obj\Debug\net9.0\LojaVirtualProva.sourcelink.json
