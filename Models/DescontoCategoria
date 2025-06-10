@@ -1,0 +1,11 @@
+using System;
+
+namespace LojaVirtual.Models
+
+public class DescontoCategoria : Desconto
+{
+    public decimal Calcular(ItemPedido item)
+    {
+        return item.Produto.Categoria == "Eletrônicos" ? item.Subtotal() * 0.10m : 0;
+    }
+}

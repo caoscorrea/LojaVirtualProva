@@ -1,0 +1,8 @@
+using System;
+
+namespace LojaVirtual.Models
+
+public interface Desconto
+{
+    decimal Calcular(ItemPedido item);
+}

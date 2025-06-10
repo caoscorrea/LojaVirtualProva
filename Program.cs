@@ -2,26 +2,29 @@
 using System.Collections.Generic;
 using LojaVirtual.Models;
 
-class Program
+var notebook = new Produto(1, "Notebook", 3000, "Eletrônicos");
+var livro = new Produto(2, "Livro", 100, "Livros");
+
+var cliente = new Cliente(1, "Carlos", "carlos@email.com", "12345678900");
+
+var itens = new List<ItemPedido>
 {
-    static void Main()
-    {
-        var produtos = new List<Produto>();
+    new ItemPedido(notebook, 1),
+    new ItemPedido(livro, 3)
+};
 
-        try
-        {
-            produtos.Add(new Produto(1, "Notebook", 3500, "Eletrônicos"));
-            produtos.Add(new Produto(2, "Camisa", 120, "Vestuário"));
-        }
-        catch (ArgumentException ex)
-        {
-            Console.WriteLine($"Erro ao cadastrar produto: {ex.Message}");
-        }
+var descontos = new List<IDescontoStrategy>
+{
+    new DescontoCategoria(),
+    new DescontoQuantidade()
+};
 
-        Console.WriteLine("Produtos cadastrados:");
-        foreach (var produto in produtos)
-        {
-            Console.WriteLine(produto);
-        }
-    }
+var pedido = PedidoFactory.Criar(1, cliente, itens, descontos);
+
+Console.WriteLine($"Pedido #{pedido.Id} - Cliente: {pedido.Cliente.Nome}");
+Console.WriteLine($"Data: {pedido.Data}");
+foreach (var item in pedido.Itens)
+{
+    Console.WriteLine($"- {item.Produto.Nome} x{item.Quantidade} = R$ {item.Subtotal():F2}");
 }
+Console.WriteLine($"Total com descontos: R$ {pedido.Total:F2}");

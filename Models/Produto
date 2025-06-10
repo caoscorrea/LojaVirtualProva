@@ -4,26 +4,31 @@ namespace LojaVirtual.Models
 {
     public class Produto
     {
-        public int Id {get; private set;}
-        public string Nome {get; private set;}
-        public decimal Preco {get; private set;}
-        public string Categoria {get; private set;}
+        public int Id { get; private set; }
+        public string Nome { get; private set; }
+        public decimal Preco { get; private set; }
+        public string Categoria { get; private set; }
 
-        public Produto(int  id, string nome, decimal preco, string categoria)
+        public Produto(int id, string nome, decimal preco, string categoria)
         {
             if (id <= 0)
-                throw new ArgumentExpection("O id do produto deve ser maior que zero");
-            if (string.IsNullOrWhiteSpace(nome)) 
-                throw new ArgumentExpection("Nome é obrigatorio");
+                throw new ArgumentException("O id do produto deve ser maior que zero");
+            if (string.IsNullOrWhiteSpace(nome))
+                throw new ArgumentException("Nome é obrigatório");
             if (preco <= 0)
-                throw new ArgumentExpection("Preço deve ser maior que zero");
-            if (string,IsNullOrWhiteSpace(categoria))
-                trow new ArgumentExpection("A categoria é obrigatoria")
+                throw new ArgumentException("Preço deve ser maior que zero");
+            if (string.IsNullOrWhiteSpace(categoria))
+                throw new ArgumentException("A categoria é obrigatória");
 
             Id = id;
             Nome = nome;
             Preco = preco;
             Categoria = categoria;
+        }
+
+        public override string ToString()
+        {
+            return $"{Id} - {Nome} - R${Preco} - {Categoria}";
         }
     }
 }

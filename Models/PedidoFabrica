@@ -1,0 +1,23 @@
+using System;
+
+namespace LojaVirtual.Models
+
+public static class PedidoFactory
+{
+    public static Pedido Criar(int id, Cliente cliente, List<ItemPedido> itens, List<IDescontoStrategy> descontos)
+    {
+        decimal total = 0;
+
+        foreach (var item in itens)
+        {
+            decimal subtotal = item.Subtotal();
+            foreach (var desconto in descontos)
+            {
+                subtotal -= desconto.Calcular(item);
+            }
+            total += subtotal;
+        }
+
+        return new Pedido(id, cliente, itens, total);
+    }
+}

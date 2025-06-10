@@ -1,0 +1,21 @@
+using System;
+
+namespace LojaVirtual.Models
+
+public class Pedido
+{
+    public int Id { get; private set; }
+    public Cliente Cliente { get; private set; }
+    public List<ItemPedido> Itens { get; }
+    public DateTime Data { get; }
+    public decimal Total { get; }
+
+    public Pedido(int id, Cliente cliente, List<ItemPedido> itens, decimal total)
+    {
+        Id = id;
+        Cliente = cliente;
+        Itens = itens;
+        Data = DateTime.Now;
+        Total = total;
+    }
+} 
